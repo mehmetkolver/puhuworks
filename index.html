@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PuhuWorks · mobile app & UI/UX design</title>
+  <!-- Tailwind + Font Awesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+      /* custom blue (primary) = #0033CC — same as previous tasks, but we can also make it slightly richer */
+      :root { --primary: #0033CC; }
+      .text-primary { color: #0033CC; }
+      .border-primary { border-color: #0033CC; }
+      .bg-primary { background-color: #0033CC; }
+      .bg-primary-light { background-color: rgba(0, 51, 204, 0.05); }
+      .bg-primary-soft { background-color: rgba(0, 51, 204, 0.03); }
+      .hover\:bg-primary-dark:hover { background-color: #0029a3; }
+      .from-primary { --tw-gradient-from: #0033CC; }
+      .to-primary-light { --tw-gradient-to: #4d7aff; }
+
+      /* fancy floating animation for cards */
+      .float-slow { animation: float 6s ease-in-out infinite; }
+      .float-medium { animation: float 8s ease-in-out infinite; }
+      @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0px); }
+      }
+
+      /* subtle grid pattern for sections */
+      .grid-pattern {
+          background-size: 40px 40px;
+          background-image:
+                  linear-gradient(to right, rgba(0,51,204,0.02) 1px, transparent 1px),
+                  linear-gradient(to bottom, rgba(0,51,204,0.02) 1px, transparent 1px);
+      }
+  </style>
+</head>
+<body class="bg-white text-gray-800 antialiased font-sans overflow-x-hidden">
+
+<!-- NAVIGATION · simple & elegant -->
+<nav class="fixed top-0 w-full bg-white/70 backdrop-blur-xl z-50 border-b border-gray-100/80">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
+    <!-- logo / wordmark -->
+    <a href="#" class="flex items-center gap-2 group">
+      <span class="text-3xl font-light tracking-tight text-gray-800">Puhu<span class="font-bold text-primary">Works</span></span>
+      <span class="text-xs bg-primary-light text-primary px-2 py-0.5 rounded-full">creative studio</span>
+    </a>
+    <!-- contact button (email) -->
+    <a href="mailto:mehmetkolver@hotmail.com" class="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-[#0029a3] transition shadow-md shadow-primary/20">
+      <i class="fas fa-paper-plane"></i> mehmetkolver@hotmail.com
+    </a>
+    <!-- mobile hamburger (just icon, no functionality needed for static) -->
+    <div class="md:hidden text-2xl text-gray-400"><i class="fas fa-bars"></i></div>
+  </div>
+</nav>
+<!-- spacer for fixed nav -->
+<div class="h-20"></div>
+
+<!-- HERO SECTION · creative, fancy, blue accent -->
+<section class="relative max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-20 md:pt-16 md:pb-28 overflow-hidden">
+  <!-- background abstract blobs (very light) -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+  <div class="absolute bottom-0 left-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+
+  <div class="grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <!-- floating badge -->
+      <div class="inline-flex items-center bg-primary-light px-4 py-1.5 rounded-full text-sm font-medium text-primary border border-primary/10 mb-6 float-slow">
+        <i class="fas fa-magic mr-2"></i> design · develop · deliver
+      </div>
+      <h1 class="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 leading-tight">
+        We craft <span class="text-primary relative">mobile magic<span class="absolute -bottom-2 left-0 w-full h-1 bg-primary/30 rounded-full"></span></span><br>and pixel‑perfect UI/UX
+      </h1>
+      <p class="text-xl text-gray-600 mt-6 max-w-lg">
+        PuhuWorks is a creative studio specialised in mobile app development and human‑centered design.
+        From idea to App Store — we build experiences people love.
+      </p>
+      <!-- cta buttons -->
+      <div class="flex flex-wrap gap-4 mt-10">
+        <a href="#contact" class="bg-primary text-white px-8 py-4 rounded-full font-semibold shadow-xl shadow-primary/30 hover:bg-[#0029a3] transition flex items-center gap-2">
+          <i class="fas fa-calendar-check"></i> Start your project
+        </a>
+        <a href="#work" class="bg-gray-100 text-gray-700 px-8 py-4 rounded-full font-semibold hover:bg-gray-200 transition flex items-center gap-2">
+          <i class="fas fa-arrow-down"></i> See our work
+        </a>
+      </div>
+      <!-- trust signal -->
+      <div class="flex items-center gap-5 mt-12 text-sm text-gray-500">
+        <div class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> 5+ years</div>
+        <div class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> 30+ apps shipped</div>
+        <div class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> iOS · Android · Web</div>
+      </div>
+    </div>
+
+    <!-- right side: fancy floating cards / creative mockup (design & dev fusion) -->
+    <div class="relative flex justify-center items-center h-full">
+      <div class="relative w-full max-w-sm">
+        <!-- main card: design tool -->
+        <div class="bg-white rounded-3xl shadow-2xl p-6 border border-gray-100 float-slow relative z-10" style="transform: rotate(-3deg);">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+            <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+            <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+            <span class="text-xs text-gray-400 ml-2">Figma · UI design</span>
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 flex items-center gap-3">
+            <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-2xl text-primary"><i class="fas fa-paint-brush"></i></div>
+            <div>
+              <div class="font-semibold">Finch — habit tracker</div>
+              <div class="text-xs text-gray-500">UI/UX, prototyping</div>
+            </div>
+          </div>
+          <div class="mt-3 h-2 w-full bg-gray-100 rounded-full"></div>
+          <div class="mt-2 h-2 w-2/3 bg-gray-100 rounded-full"></div>
+        </div>
+
+        <!-- second card: development (floating slightly different) -->
+        <div class="absolute -bottom-10 -right-10 bg-white rounded-3xl shadow-xl p-5 border border-gray-100 float-medium w-64" style="transform: rotate(5deg);">
+          <div class="flex items-center gap-2 mb-3">
+            <i class="fab fa-swift text-2xl text-primary"></i>
+            <i class="fab fa-android text-2ll text-green-600"></i>
+            <span class="text-xs text-gray-400 ml-auto">React Native</span>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-2 flex items-center gap-2">
+            <div class="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center"><i class="fas fa-code text-primary text-xs"></i></div>
+            <span class="text-sm">Stocky · inventory app</span>
+          </div>
+          <div class="mt-2 flex justify-between text-xs text-gray-500">
+            <span><i class="fas fa-star text-amber-400"></i> 4.8</span>
+            <span>#12 finance</span>
+          </div>
+        </div>
+
+        <!-- tiny third element (creative spark) -->
+        <div class="absolute -top-6 -left-10 bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center shadow-xl float-slow">
+          <i class="fas fa-lightbulb text-2xl"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION (creative cards) -->
+<section class="bg-primary-light/30 py-24 relative grid-pattern">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="text-primary font-semibold tracking-wider text-sm">EXPERTISE</span>
+      <h2 class="text-4xl md:text-5xl font-bold mt-3 mb-6">We blend creativity with code</h2>
+      <p class="text-gray-600 text-lg">End‑to‑end mobile solutions that look stunning and perform flawlessly.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 mt-20">
+      <!-- card 1: UI/UX design -->
+      <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:border-primary/20 transition group">
+        <div class="w-16 h-16 bg-primary-light rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:scale-110 transition">🎨</div>
+        <h3 class="text-2xl font-semibold mb-3">UI/UX design</h3>
+        <p class="text-gray-500">Wireframes, interactive prototypes, design systems, and user‑tested interfaces that convert.</p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Figma</span>
+          <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Sketch</span>
+          <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Principle</span>
+        </div>
+      </div>
+      <!-- card 2: mobile development -->
+      <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:border-primary/20 transition group md:translate-y-6">
+        <div class="w-16 h-16 bg-primary-light rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:scale-110 transition">📱</div>
+        <h3 class="text-2xl font-semibold mb-3">Mobile development</h3>
+        <p class="text-gray-500">Native (Swift, Kotlin) and cross‑platform (Flutter, React Native) apps with clean architecture.</p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">SwiftUI</span>
+          <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Jetpack</span>
+          <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Flutter</span>
+        </div>
+      </div>
+      <!-- card 3: app store & strategy -->
+      <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:border-primary/20 transition group">
+        <div class="w-16 h-16 bg-primary-light rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:scale-110 transition">🚀</div>
+        <h3 class="text-2xl font-semibold mb-3">Launch & ASO</h3>
+        <p class="text-gray-500">App store optimization, metadata, screenshots, and submission support to boost visibility.</p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">App Store</span>
+          <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">Google Play</span>
+          <span class="text-xs bg-gray-100 px-3 py-1 rounded-full">ASO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE / SELECTED WORK (fancy grid) -->
+<section id="work" class="py-24 max-w-7xl mx-auto px-6 md:px-10">
+  <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+    <div>
+      <span class="text-primary font-semibold tracking-wider text-sm">PORTFOLIO</span>
+      <h2 class="text-4xl md:text-5xl font-bold mt-3">Recent creations</h2>
+    </div>
+    <a href="mailto:mehmetkolver@hotmail.com" class="mt-4 md:mt-0 text-primary font-medium underline underline-offset-4">View all projects →</a>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-8">
+    <!-- project 1: finch -->
+    <div class="group relative bg-gray-50 rounded-3xl overflow-hidden shadow-xl border border-gray-100">
+      <div class="h-64 bg-gradient-to-br from-primary/10 to-indigo-100 flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMzAgMTBhMjAgMjAgMCAwIDEgMCA0MCAyMCAyMCAwIDAgMSAwLTQweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAzM0NDIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9IjAuMTUiLz48L3N2Zz4=')] bg-repeat opacity-20"></div>
+        <div class="relative flex gap-4">
+          <div class="w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center text-4xl text-primary">🐦</div>
+          <div class="w-20 h-20 bg-white rounded-2xl shadow-lg flex items-center justify-center text-4xl text-primary">📊</div>
+        </div>
+      </div>
+      <div class="p-8">
+        <h3 class="text-2xl font-semibold">Finch — habit tracker</h3>
+        <p class="text-gray-500 mt-2">Minimalist UI/UX with haptic feedback and gamification. Top 10 in Health & Fitness.</p>
+        <div class="flex gap-3 mt-5 text-sm">
+          <span class="bg-primary-light text-primary px-3 py-1 rounded-full">UI/UX design</span>
+          <span class="bg-gray-100 px-3 py-1 rounded-full">iOS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- project 2: stocky (meta) -->
+    <div class="group relative bg-gray-50 rounded-3xl overflow-hidden shadow-xl border border-gray-100">
+      <div class="h-64 bg-gradient-to-br from-primary/10 to-blue-50 flex items-center justify-center">
+        <div class="relative flex gap-3">
+          <div class="w-24 h-24 bg-white rounded-3xl shadow-xl flex items-center justify-center text-5xl text-primary"><i class="fas fa-barcode"></i></div>
+        </div>
+      </div>
+      <div class="p-8">
+        <h3 class="text-2xl font-semibold">Stocky — stock manager</h3>
+        <p class="text-gray-500 mt-2">Barcode‑based inventory for small businesses. Material You design + offline mode.</p>
+        <div class="flex gap-3 mt-5 text-sm">
+          <span class="bg-primary-light text-primary px-3 py-1 rounded-full">Android</span>
+          <span class="bg-gray-100 px-3 py-1 rounded-full">Flutter</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- small extra project row (just for style) -->
+  <div class="grid md:grid-cols-3 gap-6 mt-8">
+    <div class="bg-gray-50 p-5 rounded-xl border border-gray-100 flex items-center gap-3">
+      <i class="fas fa-wallet text-primary text-2xl"></i>
+      <div><span class="font-medium">Expensy</span><span class="text-xs text-gray-400 block">finance tracker</span></div>
+    </div>
+    <div class="bg-gray-50 p-5 rounded-xl border border-gray-100 flex items-center gap-3">
+      <i class="fas fa-utensils text-primary text-2xl"></i>
+      <div><span class="font-medium">MealMate</span><span class="text-xs text-gray-400 block">recipe app</span></div>
+    </div>
+    <div class="bg-gray-50 p-5 rounded-xl border border-gray-100 flex items-center gap-3">
+      <i class="fas fa-dumbbell text-primary text-2xl"></i>
+      <div><span class="font-medium">Gymflow</span><span class="text-xs text-gray-400 block">workout log</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / LETS TALK (with email) -->
+<section id="contact" class="bg-primary-light/30 py-24 relative overflow-hidden">
+  <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+  <div class="max-w-4xl mx-auto text-center px-6 relative">
+    <span class="text-primary font-semibold tracking-wider text-sm">START A CONVERSATION</span>
+    <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Let’s build something great together</h2>
+    <p class="text-xl text-gray-600 mb-12">Got an idea? We’re just an email away. Reach out and we’ll reply within 24h.</p>
+
+    <!-- fancy email card -->
+    <div class="bg-white rounded-3xl p-10 shadow-2xl border border-gray-100 max-w-2xl mx-auto">
+      <div class="flex flex-col items-center">
+        <div class="w-20 h-20 bg-primary-light rounded-full flex items-center justify-center text-4xl text-primary mb-4"><i class="fas fa-envelope"></i></div>
+        <a href="mailto:mehmetkolver@hotmail.com" class="text-3xl md:text-4xl font-light text-primary break-all hover:underline">mehmetkolver@hotmail.com</a>
+        <p class="text-gray-500 mt-6 flex items-center gap-2"><i class="fas fa-clock text-primary"></i> Usually replies within a few hours</p>
+      </div>
+      <!-- alternative contact (small) -->
+      <div class="mt-8 flex justify-center gap-6 text-sm text-gray-400">
+        <span><i class="fab fa-whatsapp text-gray-300 mr-1"></i> +90 555 123 45 67</span>
+        <span><i class="fab fa-telegram text-gray-300 mr-1"></i> @puhuworks</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-white border-t border-gray-100 py-12">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="text-2xl font-light">Puhu<span class="font-bold text-primary">Works</span></div>
+    <div class="text-sm text-gray-400">© 2026 · mobile & UI/UX studio · all rights cool</div>
+    <div class="flex gap-5 text-gray-400">
+      <a href="#" class="hover:text-primary transition"><i class="fab fa-dribbble"></i></a>
+      <a href="#" class="hover:text-primary transition"><i class="fab fa-behance"></i></a>
+      <a href="#" class="hover:text-primary transition"><i class="fab fa-github"></i></a>
+      <a href="mailto:mehmetkolver@hotmail.com" class="hover:text-primary transition"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+  <!-- tiny credit -->
+  <p class="text-center text-xs text-gray-300 mt-8">made with 🧊 in istanbul</p>
+</footer>
+</body>
+</html>
